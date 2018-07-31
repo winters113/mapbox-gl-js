@@ -476,6 +476,7 @@ class Painter {
 
     setBaseState() {
         this.context.cullFace.set(false);
+        this.context.viewport.set([0, 0, this.width, this.height]);
     }
 }
 
