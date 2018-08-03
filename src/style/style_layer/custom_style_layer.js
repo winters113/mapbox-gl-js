@@ -131,6 +131,7 @@ export type CustomLayerInterface = {
     id: string,
     type: "custom",
     render: CustomRenderMethod,
+    prerender: CustomRenderMethod,
     render3D: CustomRenderMethod,
     onAdd: (map: Map, gl: WebGLRenderingContext) => void,
     onRemove(map: Map): void

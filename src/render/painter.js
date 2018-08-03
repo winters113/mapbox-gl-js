@@ -389,10 +389,7 @@ class Painter {
             }
         }
 
-        // Prevent custom layers from unintentionally modify the last VAO used.
-        // All other state is state is restored on it's own, but for VAOs it's
-        // simpler to unbind so that we don't have to track the state of VAOs.
-        this.context.unbindVAO();
+        this.setCustomLayerDefaults();
     }
 
     setupOffscreenDepthRenderbuffer(): void {
@@ -472,6 +469,24 @@ class Painter {
         this.context.program.set(nextProgram.program);
 
         return nextProgram;
+    }
+
+    /*
+     * Reset some GL state to default values to avoid hard-to-debug bugs
+     * in custom layers.
+     */
+    setCustomLayerDefaults() {
+        // Prevent custom layers from unintentionally modify the last VAO used.
+        // All other state is state is restored on it's own, but for VAOs it's
+        // simpler to unbind so that we don't have to track the state of VAOs.
+        this.context.unbindVAO();
+
+        // The default values for this state is meaningful and often expected.
+        // Leaving this state dirty could cause a lot of confusion for users.
+        this.context.cullFace.setDefault();
+        this.context.activeTexture.setDefault();
+        this.context.pixelStoreUnpack.setDefault();
+        this.context.pixelStoreUnpackPremultiplyAlpha.setDefault();
     }
 
     setBaseState() {
