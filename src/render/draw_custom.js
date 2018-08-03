@@ -49,6 +49,7 @@ function drawCustom(painter: Painter, sourceCache: SourceCache, layer: CustomSty
 
             context.setDirty();
             painter.setBaseState();
+            context.bindFramebuffer.set(null);
         }
 
         if (layer.implementation.render3D) {
