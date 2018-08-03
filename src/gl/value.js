@@ -768,6 +768,33 @@ export class PixelStoreUnpackPremultiplyAlpha implements Value<boolean> {
     }
 }
 
+export class PixelStoreUnpackFlipY implements Value<boolean> {
+    context: Context;
+    current: boolean;
+    default: boolean;
+    dirty: boolean;
+
+    constructor(context: Context) {
+        this.context = context;
+        this.default = false;
+        this.current = this.default;
+        this.dirty = false;
+    }
+
+    get(): boolean { return this.current; }
+
+    setDefault(): void { this.set(this.default); }
+
+    set(v: boolean): void {
+        if (this.current !== v || this.dirty === true) {
+            const gl = this.context.gl;
+            gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, (v: any));
+            this.current = v;
+            this.dirty = false;
+        }
+    }
+}
+
 /**
  * Framebuffer values
  * @private

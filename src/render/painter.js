@@ -487,6 +487,7 @@ class Painter {
         this.context.activeTexture.setDefault();
         this.context.pixelStoreUnpack.setDefault();
         this.context.pixelStoreUnpackPremultiplyAlpha.setDefault();
+        this.context.pixelStoreUnpackFlipY.setDefault();
     }
 
     setBaseState() {
