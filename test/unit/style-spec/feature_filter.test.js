@@ -79,8 +79,25 @@ test('convert legacy filters to expressions', t => {
 
     legacyFilterTests(t, (f) => {
         const converted = convertFilter(f);
-        // console.log(`Converted ${JSON.stringify(f)} to ${JSON.stringify(converted)}`);
         return createFilter(converted);
+    });
+
+    t.test('mimic legacy type mismatch semantics', (t) => {
+        const filter = ["any",
+            ["all", [">", "y", 0], [">", "y", 0]],
+            [">", "x", 0]
+        ];
+
+        const converted = convertFilter(filter);
+        const f = createFilter(converted);
+
+        t.equal(f({zoom: 0}, {properties: {x: 0, y: 1, z: 1}}), true);
+        t.equal(f({zoom: 0}, {properties: {x: 1, y: 0, z: 1}}), true);
+        t.equal(f({zoom: 0}, {properties: {x: 0, y: 0, z: 1}}), false);
+        t.equal(f({zoom: 0}, {properties: {x: null, y: 1, z: 1}}), true);
+        t.equal(f({zoom: 0}, {properties: {x: 1, y: null, z: 1}}), true);
+        t.equal(f({zoom: 0}, {properties: {x: null, y: null, z: 1}}), false);
+        t.end();
     });
 
     t.end();
