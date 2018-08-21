@@ -1,5 +1,5 @@
 /*---
-title: 绘制多边形区域
+title: 绘制多边形区域 
 description: >-
   使用mapbox GL draw 绘制一个多边形。可以使用turf.js 来计算面积，面积单位为平方米。
 tags:
