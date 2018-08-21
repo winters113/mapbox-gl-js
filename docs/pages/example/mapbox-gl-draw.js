@@ -1,8 +1,7 @@
 /*---
-title: Show drawn polygon area
+title: 绘制多边形区域
 description: >-
-  Use GL draw to draw a polygon and turf.js to calculate its area in square
-  meters.
+  使用mapbox GL draw 绘制一个多边形。可以使用turf.js 来计算面积，面积单位为平方米。
 tags:
   - controls-and-overlays
 pathname: /mapbox-gl-js/example/mapbox-gl-draw/
