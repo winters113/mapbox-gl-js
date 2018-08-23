@@ -1,8 +1,7 @@
 /*---
-title: Show drawn polygon area
+title: 绘制多边形区域 
 description: >-
-  Use [mapbox-gl-draw](https://github.com/mapbox/mapbox-gl-draw) to draw a polygon and [Turf.js](http://turfjs.org/) to calculate its area in square
-  meters.
+ 使用 [mapbox-gl-draw](https://github.com/mapbox/mapbox-gl-draw) 绘制一个多边形。可以使用turf.js 来计算面积，面积单位为平方米。
 tags:
   - controls-and-overlays
 pathname: /mapbox-gl-js/example/mapbox-gl-draw/
