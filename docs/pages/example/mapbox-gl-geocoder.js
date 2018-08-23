@@ -1,8 +1,8 @@
 /*---
-title: Add a geocoder
+title: 添加一个地理编码器
 description: >-
-  Use the [mapbox-gl-geocoder](https://github.com/mapbox/mapbox-gl-geocoder)
-  control to search for places using Mapbox Geocoding API.
+  基于 Mapbox Geocoding API，使用地理编码器 [mapbox-gl-geocoder](https://github.com/mapbox/mapbox-gl-geocoder)
+  来搜索获取具体地点信息.
 tags:
   - controls-and-overlays
   - geocoder
