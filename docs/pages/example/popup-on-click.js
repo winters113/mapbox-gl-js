@@ -1,6 +1,6 @@
 /*---
-title: Display a popup on click
-description: 'When a user clicks a symbol, show a popup containing more information.'
+title: 单击时以显示弹出窗口
+description: '当用户单击地图符号时，显示包含更多信息的弹出窗口'
 tags:
   - controls-and-overlays
 pathname: /mapbox-gl-js/example/popup-on-click/
